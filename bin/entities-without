@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'json'
+require 'fileutils'
+
+datapath = "data/"
+datafiles = "*.json"
+
+puts "Please enter a key: "
+without_key = gets.chomp
+files_missing = []
+
+Dir.glob("#{datapath}*").select {|f| File.directory? f}.each do |dir|
+  dirname = dir.split("/").last
+  datafilespath = "#{dir}/#{datafiles}"
+  Dir.glob(datafilespath).each do |file|
+    d = JSON.parse(File.read(file))
+    if d[without_key].nil?
+      files_missing << file
+    end
+  end
+end
+
+puts "Entities missing #{without_key}:"
+files_missing.each { |file| puts file }
