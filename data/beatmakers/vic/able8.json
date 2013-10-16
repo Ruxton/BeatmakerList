@@ -4,9 +4,8 @@
   "facebook": "https://www.facebook.com/Able8music",
   "facebook2": "https://www.facebook.com/ablebeats",
   "twitter": "https://twitter.com/Able8",
-  "discogs": "http://www.discogs.com/artist/Able8"
-  states: [
-    "wa",
-    "vic"
+  "discogs": "http://www.discogs.com/artist/Able8",
+  "extra_states": [
+    "wa"
   ]
 }
