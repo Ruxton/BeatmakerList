@@ -2,7 +2,7 @@
 require 'json'
 require 'fileutils'
 
-datapath = "data/"
+datapath = "data/beatmakers/"
 datafiles = "*.json"
 outputdir = "output/"
 
