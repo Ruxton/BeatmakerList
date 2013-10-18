@@ -1,0 +1,8 @@
+= render "shared/_header"
+
+%h1= @page_title
+
+%em= "#{@data_count} Beatmakers in list"
+= render partial: "artist", collection: @data
+
+= render "shared/_footer"
