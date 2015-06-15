@@ -1,6 +1,9 @@
 {
   "name": "Soma",
-  "soundcloud": "https://soundcloud.com/soma-beats",
-  "soundcloud2": "https://soundcloud.com/soma1-1",
+  "home_state": "wa",
+  "soundcloud": [
+    "https://soundcloud.com/somatunes",
+    "https://soundcloud.com/soma1-1"
+  ],
   "facebook": "https://www.facebook.com/dirtymacintoshboy"
 }

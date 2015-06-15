@@ -1,8 +1,11 @@
 {
   "name": "DeksOne",
+  "home_state": "wa",
   "facebook": "https://www.facebook.com/deks.onehg",
-  "soundcloud": "https://soundcloud.com/deksone",
-  "soundcloud2": "https://soundcloud.com/deksone-hg",
+  "soundcloud": [
+    "https://soundcloud.com/deksone",
+    "https://soundcloud.com/deksone-hg"
+  ],
   "soundclick": "http://www.soundclick.com/bands/default.cfm?bandID=367084",
   "reverbnation": "http://www.reverbnation.com/deksone"
 }

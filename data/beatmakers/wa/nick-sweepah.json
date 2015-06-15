@@ -1,6 +1,9 @@
 {
   "name": "Nick Sweepah aka. Ourobonic-Plague",
+  "home_state": "wa",
   "facebook": "https://www.facebook.com/ourobonic.plague",
-  "soundcloud": "https://soundcloud.com/ourobonicplague",
-  "soundcloud2": "https://soundcloud.com/nick-sweepah"
+  "soundcloud": [
+    "https://soundcloud.com/nick-sweepah",
+    "https://soundcloud.com/ourobonicplague"
+  ]
 }

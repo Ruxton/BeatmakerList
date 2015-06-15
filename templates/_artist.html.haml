@@ -1,4 +1,14 @@
 %h2= "#{artist["name"]}"
+
+- unless artist["soundcloud"].nil?
+  - if artist["soundcloud"].is_a?(Array)
+    - soundcloud = artist["soundcloud"][0]
+  - else
+    - soundcloud = artist["soundcloud"]
+
+  - unless soundcloud.empty?
+    %iframe{width: "450", height:"300", scrolling: "no", frameborder: "no", src: "https://w.soundcloud.com/player/?url=#{URI.encode(soundcloud)}" }
+
 %ul
   - artist.reject{ |k,v| REJECTED_KEYS.include? k }.each do |k,v|
     %li

@@ -1,6 +1,9 @@
 {
   "name": "Mei Saraswati",
+  "home_state": "wa",
   "facebook": "https://www.facebook.com/pages/Mei-Saraswati/288244081188006",
-  "soundcloud": "https://soundcloud.com/mei-saraswati",
-  "soundcloud2": "https://soundcloud.com/mei-saraswati-overflow"
+  "soundcloud": [
+    "https://soundcloud.com/mei-saraswati",
+    "https://soundcloud.com/mei-saraswati-overflow"
+  ]
 }

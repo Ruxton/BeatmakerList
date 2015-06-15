@@ -1,5 +1,9 @@
 {
   "name": "Lewis Galaga",
+  "home_state": "vic",
   "facebook": "https://www.facebook.com/pages/Lewis-Galaga/131521533535940",
-  "soundcloud": "https://soundcloud.com/lewis-galaga"
+  "soundcloud": "https://soundcloud.com/lewis-galaga",
+  "extra_state": [
+    "wa"
+  ]
 }
