@@ -2,13 +2,14 @@
 require 'json'
 require 'fileutils'
 require 'haml'
+require 'uri'
 
 class Builder
 
   DATAPATH = "data/"
   DATAFILES = "*.json"
   OUTPUTDIR = "output/"
-  REJECTED_KEYS = ["name","home_state","extra_states"]
+  REJECTED_KEYS = ["name","home_state","extra_states","soundcloud"]
 
   def render_file(filename,vars={})
     obj = self
@@ -49,40 +50,47 @@ class Builder
   def build_entity(file)
     state = File.dirname(file).split("/").last
     str = File.read(file)
+    puts "Parsing #{file}.."
     data = JSON.parse(str)
-    data["home_state"] = state
     data
   end
 
   def states
-    if @states.nil?
-      @states = {}
-      Dir.glob("#{DATAPATH}states/#{DATAFILES}") do |file|
-        id = File.basename(file,".json")
-        @states[id] = JSON.parse(File.read(file))
+    @states ||= begin
+      if @states.nil?
+        @states = {}
+        Dir.glob("#{DATAPATH}states/#{DATAFILES}") do |file|
+          id = File.basename(file,".json")
+          @states[id] = JSON.parse(File.read(file))
+        end
+        @states
+      else
+        @states
       end
-      @states
-    else
-      @states
     end
   end
 
   def run
-    Dir.glob("#{DATAPATH}beatmakers/*").select {|f| File.directory? f}.each do |dir|
-      dirname = dir.split("/").last
-      FileUtils.mkdir_p(OUTPUTDIR)
-      datafilespath = "#{dir}/#{DATAFILES}"
-      @data_count = Dir[datafilespath].length
-      @data = []
-      @page_title = "#{dirname.upcase} Beatmakers"
-      Dir.glob(datafilespath).each do |file|
-        @data << build_entity(file)
-      end
+    @data={}
+    Dir.glob("#{DATAPATH}beatmakers/*") do |file|
+      beatmaker = build_entity(file)
+      state = beatmaker["home_state"]
+
+      @data[state] = [] if @data[state].nil?
+
+      @data[state] << beatmaker
+    end
+
+    FileUtils.mkdir_p(OUTPUTDIR)
+    @data.each do |state,beatmakers|
+      @beatmaker_count = @data[state].length
+      state_name = states[state]["name"]
+      @page_title = "Beatmakers out of #{state_name}"
+      @beatmakers = beatmakers
 
       begin
-        output = File.open("#{OUTPUTDIR}#{dirname}-beatmakers.html", "w")
+        output = File.open("#{OUTPUTDIR}#{state}-beatmakers.html","w")
         output << render("index")
-
       ensure
         output.close
       end
