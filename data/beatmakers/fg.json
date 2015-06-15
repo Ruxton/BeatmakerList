@@ -1,6 +1,10 @@
 {
   "name": "FG",
-  "home_state": "wa",
+  "home_state": "vic",
   "soundcloud": "https://soundcloud.com/iamfg",
-  "facebook": "https://www.facebook.com/iamFG"
+  "facebook": "https://www.facebook.com/iamFG",
+  "bandcamp": "http://iamfg.bandcamp.com",
+  "extra_states": [
+    "wa"
+  ]
 }
